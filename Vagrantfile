@@ -9,6 +9,10 @@ Vagrant.configure("2") do |config|
     d.build_dir = "."
     d.remains_running = true
     d.has_ssh = true
+    d.create_args = ['-d', '-v=/sys/fs/cgroup:/sys/fs/cgroup:rw', '--privileged', '--cgroupns=host']
   end
 
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
 end

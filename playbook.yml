@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: Ensure chrony (for time synchronization) is installed.
+    yum:
+      name: nginx
+      state: present
+
+  - name: Ensure chrony is running.
+    service:
+      name: nginx
+      state: started
+      enabled: yes
+
