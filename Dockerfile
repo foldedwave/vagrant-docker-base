@@ -28,7 +28,7 @@ RUN rm -rf /run/nologin
 
 # Install the replacement systemctl command
 RUN yum -y install python3
-COPY src/docker-systemctl-replacement/files/docker/systemctl3.py /usr/bin/systemctl
+COPY docker-systemctl-replacement/files/docker/systemctl3.py /usr/bin/systemctl
 RUN chmod 755 /usr/bin/systemctl
 
 CMD /usr/bin/systemctl
